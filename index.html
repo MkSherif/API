@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 align="center">Sign Up</h1>
+       <form id="signupForm">
+           <label for="username">Username</label>
+           <input type="text" id="username" placeholder="Enter Username">
+           <div id="usernameError" class="error"></div>
+   
+           <label for="email">Email</label> 
+           <input type="email" id="email" placeholder="Enter Email Address">
+           <div id="emailerror" class="error"></div>
+   
+   
+           <label for="password">Password</label>
+           <input type="password" id="password" placeholder="Enter Password">
+           <div id="passworderror" class="error"></div>
+
+           <label for="confirmpassword">Confirm Password</label>
+           <input type="password" id="cpassword" placeholder="Enter confirm Password">
+           <div id="cpassworderror" class="error"></div>
+           
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <button type="submit">Sign Up</button>
+       </form>
+       <p align="center">Already have an Account? <a href="signin.html">SignIn</a></p>
+    </div>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var cpassword = document.getElementById('cpassword').value;
+
+            if (!username) {
+                document.getElementById('usernameError').textContent = 'Username is required.';
+                return false;
+            } else {
+                document.getElementById('usernameError').textContent = '';
+            }
+
+            var emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+
+            if (!email || !emailRegex.test(email)) {
+                document.getElementById('emailerror').textContent='Please enter a valid email address.';
+                return false;
+            }else {
+                document.getElementById('emailerror').textContent = '';
+            }
+
+            var passwordCheck = password.length >= 6;
+
+            if (!passwordCheck) {
+               document.getElementById('passworderror').textContent='Create a password (6 characters minimum)';
+               return false;
+            }else {
+               document.getElementById('passworderror').textContent = '';
+            }
+           
+
+            if (password !== cpassword) {
+                document.getElementById('cpassworderror').textContent='Confirm Password is required.';
+                return false;
+            }
+
+            alert('signup successfully.');
+
+
+            setTimeout(function() {
+            window.location.href = "home.html";
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>

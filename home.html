@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #000000;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: black;
+        }
+
+        .main {
+            padding: 20px;
+        }
+
+        .footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            
+        }
+
+        @media screen and (max-width: 600px) {
+            header, main, footer {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="index.html">Signup</a>
+        <a href="signin.html">Signin</a>
+    </div>
+
+    <main>
+        <div id="linkData"></div>
+    </main>
+
+    <div class="footer">
+        <p>Email: example@email.com</p>
+        <p>Phone: +1234567890</p>
+        <p>GitHub: <a href="https://github.com/username">mksherif</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/username/">sherif</a></p>
+    </div>
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/comments')
+            .then(response => response.json())
+            .then(data => {
+                let output = '<table>';
+                output += '<tr><th>Name</th><th>Email</th><th>Body</th></tr>';
+                data.forEach(function(item) {
+                    output += '<tr><td>' + item.name + '</td><td>' + item.email + '</td><td>' + item.body + '</td></tr>';
+                });
+                output += '</table>';
+                document.getElementById('linkData').innerHTML = output;
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
