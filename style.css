@@ -4,46 +4,86 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
     background-color: #f0f0f0;
 }
+
 .container {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-    max-width:500px;
-    padding: 20px;
-    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
     background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-}
-form{
-    display: grid;
-}
-input {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 3px;
-    border: 1px solid #ddd;
-}
-.error {
-    font-size: small;
-    color: red;
-    margin-bottom: 10px;
-}
-button {
-    padding: 10px;
-    border-radius: 3px;
-    border: none;
-    background-color: #007BFF;
-    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(1,0,0,0.1);
 }
 .container:hover{
-    box-shadow:0px 1px 10px rgba(0,0,0,2);
+     box-shadow: 0px 0px 10px rgba(0,0,0,2);
 }
-a{
-    text-decoration: none;
-    color: #7313df;
+h1 {
+    text-align: center;
+    color: #000000;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+p {
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 5px;
+        box-sizing:border-box; 
+        margin-top :10%;
+        margin-bottom :10%;
+        border :1px solid black; 
+        border-radius :10px; 
+        box-shadow :2px 2px grey; 
+        padding :20px; 
+        background-color :white; 
+        align-items :center; 
+        justify-content :center; 
+        display :flex; 
+        flex-direction :column; 
+        align-self :center; 
+        justify-self :center; 
+        position :relative; 
+        top :50%; 
+        transform :translateY(-50%);
+        
+    }
+
+}
+
+
 button:hover{
     animation: shake .3s linear infinite both;
     background-color: #0972e2;
